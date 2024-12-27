@@ -15,21 +15,11 @@ export const LoadingScreen = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("/api/users", {
-          method: "POST",
+        const response = await fetch("/api/users/check-email/someemail@gmail.com", {
+          method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            email: "miloscovilons+dev@gmail.com",
-            password: "Password!23",
-            repeatPassword: "Password!23",
-            userType: "individual",
-            firstName: "Milos",
-            lastName: "Covilo",
-            country: "Serbia",
-            city: "Belgrade",
-          }),
         });
         if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);
